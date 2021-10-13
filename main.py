@@ -80,6 +80,26 @@ def test_get_longest_prime_digits():
     assert get_longest_prime_digits([23, 27, 355]) == [23, 27, 355]
 
 
+def get_longest_product_is_odd(lst): #Problema in plus
+    result = []
+    n = len(lst)
+    for st in range(n):
+        for dr in range(st, n):
+            all_numbers_are_odds = True
+            for num in range(st, dr + 1):
+                if lst[num] % 2 == 0: #am gasit un numar par
+                    all_numbers_are_odds = False
+            if all_numbers_are_odds == True: #Toate numerele sunt impare
+                if dr - st + 1 > len(result):
+                    result = lst[st:dr + 1]
+    return result
+
+def test_get_longest_product_is_odd():
+    assert get_longest_product_is_odd([1, 3, 5]) == [1, 3, 5]
+    assert get_longest_product_is_odd([2, 4, 6]) == []
+    assert get_longest_product_is_odd([1, 3, 4]) == [1, 3]
+    assert get_longest_product_is_odd([2 , 4, 3, 5]) == [3, 5]
+
 
 def main():
     lst = []
@@ -92,11 +112,15 @@ def main():
         elif optiune == '3':#Problema a 2-a
             primes =  get_longest_prime_digits(lst)
             print(primes)
+        elif optiune == '4':#Problema in plus
+            odds = get_longest_product_is_odd(lst)
+            print(odds)
         elif optiune == 'x':
             break
         else:
             print("Optiune invalida")
 if __name__ == '__main__':
+    test_get_longest_product_is_odd()
     test_get_longest_prime_digits()
     test_only_prime_digits()
     test_get_longest_alternating_signs()
