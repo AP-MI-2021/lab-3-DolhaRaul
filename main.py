@@ -1,4 +1,7 @@
 def read_list():#citire de lista
+    '''
+    Introducem intr o lista numerele introduse de utilizator(textul va fi de tip string, deci numerele le separam)
+    '''
     lst = []
     sir_numere = input('Dati valorile separate prin spatiu: ')
     sir_numere_split = sir_numere.split(' ')
@@ -9,6 +12,13 @@ def read_list():#citire de lista
 #Problema 1
 
 def get_longest_alternating_signs(lst):
+    '''
+    Determina cea mai lunga subsecventa de numere cu semne alternante(daca sunt mai multe, se afiseaza oricare)
+    Input:
+    -o lista de numere intregi
+    Output:
+    -cea mai lunga subsecventa de numere intregi din lista
+    '''
     result = []
     n = len(lst)
     for st in range(n):
@@ -23,6 +33,9 @@ def get_longest_alternating_signs(lst):
     return result
 
 def test_get_longest_alternating_signs():
+    '''
+    Functia testeaza diferite exemple pentru subprogramul get_longest_alternating_signs(ca la seminar)
+    '''
     assert get_longest_alternating_signs([1, -1, 2, -2]) == [1, -1, 2, -2]
     assert get_longest_alternating_signs([1, -1, 2, 2]) == [1, -1, 2]
     assert get_longest_alternating_signs([1, 1, 1]) == []
@@ -32,6 +45,13 @@ def test_get_longest_alternating_signs():
 #Problema 2
 
 def prime_digit(n):#verifica daca o cfifra e prima
+    '''
+    Functia verifica daca o cifra este prima sau nu
+    Input:
+    -O cifra de la 0 la 0
+    Output:
+    -returneaza True daca cifra e prima sau False in caz contrar
+    '''
     if n == 2:
         return True
     if n == 3:
@@ -43,6 +63,14 @@ def prime_digit(n):#verifica daca o cfifra e prima
     return False
 
 def only_prime_digits(n):#verifica daca numarul e format doar din cifre prime
+    '''
+    Verifica daca un numar esre format doar din cifre prime
+    Input:
+    -un unmar natural introdus de utilizator
+    Output:
+    -True daca numarul are doar cifre prime sau False in caz contrar
+    :param n:
+    '''
     cn = n
     while cn != 0:
         if prime_digit(cn % 10) == False:
@@ -51,6 +79,9 @@ def only_prime_digits(n):#verifica daca numarul e format doar din cifre prime
     return True
 
 def test_only_prime_digits():
+    '''
+    Functia testeaza diferite exemple pentru subprogramul only_prime_digits(ca la seminar)
+    '''
     assert only_prime_digits(3) == True
     assert only_prime_digits(127) == False
     assert only_prime_digits(334) == False
@@ -58,6 +89,13 @@ def test_only_prime_digits():
     assert only_prime_digits(345) == False
 
 def get_longest_prime_digits(lst):
+    '''
+    Determina cea mai lunga subsecventa de numere cu doar cu cifre prime(daca sunt mai multe, se afiseaza oricare)
+    Input:
+    -o lista de numere intregi
+    Output:
+    -cea mai lunga subsecventa de numere intregi doar cu cifre prime din lista
+    '''
     result = []
     n = len(lst)
     for st in range(n):
@@ -74,6 +112,9 @@ def get_longest_prime_digits(lst):
     return result
 
 def test_get_longest_prime_digits():
+    '''
+    Functia testeaza diferite exemple pentru subprogramul get_longest_prime_digits(ca la seminar)
+    '''
     assert get_longest_prime_digits([1, 2, 3]) == [2, 3]
     assert get_longest_prime_digits([1, 2, 345]) == [2]
     assert get_longest_prime_digits([1, 1, 1]) == []
@@ -81,6 +122,13 @@ def test_get_longest_prime_digits():
 
 
 def get_longest_product_is_odd(lst): #Problema in plus
+    '''
+    Determina cea mai lunga subsecventa de numere impare (daca sunt mai multe, se afiseaza oricare)
+    Input:
+    -o lista de numere intregi
+    Output:
+    -cea mai lunga subsecventa de numere intregi impare din lista
+    '''
     result = []
     n = len(lst)
     for st in range(n):
@@ -95,6 +143,9 @@ def get_longest_product_is_odd(lst): #Problema in plus
     return result
 
 def test_get_longest_product_is_odd():
+    '''
+    Functia testeaza diferite exemple pentru subprogramul get_longest_product_is_odd(ca la seminar)
+    '''
     assert get_longest_product_is_odd([1, 3, 5]) == [1, 3, 5]
     assert get_longest_product_is_odd([2, 4, 6]) == []
     assert get_longest_product_is_odd([1, 3, 4]) == [1, 3]
@@ -119,6 +170,7 @@ def main():
             break
         else:
             print("Optiune invalida")
+
 if __name__ == '__main__':
     test_get_longest_product_is_odd()
     test_get_longest_prime_digits()
